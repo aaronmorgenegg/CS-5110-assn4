@@ -17,7 +17,7 @@ def getVickreySlots(slots, bidders):
         slot = i
 
         try:
-            cost = slots[i]
+            cost = slots[i] * bidders[i]['bid']
         except IndexError:
             cost = 0
         if slot >= len(slots):
