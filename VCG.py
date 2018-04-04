@@ -37,7 +37,7 @@ def getVickreyCost(slots, bidders, VCG, i):
     bidders_copy.remove(bidders[i])
     VCG2 = getVickreySlots(slots, bidders_copy)
     VCG_copy = list(VCG)
-    VCG[i]['cost'] -= getVickreyCostAdjustment(VCG2, VCG_copy, i)
+    VCG[i]['cost'] = getVickreyCostAdjustment(VCG2, VCG_copy, i)
 
 def getVickreyCostAdjustment(VCG2, VCG, i):
     cost_adjustment = 0
@@ -53,6 +53,15 @@ def findBidder(i, VCG):
             return ranking
     raise Exception
 
+def toString(VCG):
+    # get a string representation of VCG for presentation purposes
+    vcg_string = ''
+    for ranking in VCG:
+        vcg_string += '\n\nBidder: ' + str(ranking['bidder']['bidder'])
+        vcg_string += '\nSlot: ' + str(ranking['slot'])
+        vcg_string += '\nCost: ' + str(ranking['cost'])
+    return vcg_string
+
 if __name__ == '__main__':
     slots = [500, 300, 100]
     bidders = [{'bid':.5, 'bidder': 0},
@@ -62,4 +71,4 @@ if __name__ == '__main__':
                {'bid': .1, 'bidder': 4}]
 
     VCG = vickreyClarkGrove(slots, bidders)
-    print(VCG)
+    print(toString(VCG))
