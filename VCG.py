@@ -57,14 +57,60 @@ def toString(VCG):
     # get a string representation of VCG for presentation purposes
     vcg_string = ''
     for ranking in VCG:
-        vcg_string += '\n\nBidder: ' + str(ranking['bidder']['bidder'])
+        vcg_string += '\nBidder: ' + str(ranking['bidder']['bidder'])
         vcg_string += '\nSlot: ' + str(ranking['slot'])
         vcg_string += '\nCost: ' + str(ranking['cost'])
+        vcg_string += '\n'
     return vcg_string
 
 if __name__ == '__main__':
+    print('\n---- TEST 1 -----\n')
     slots = [500, 300, 100]
-    bidders = [{'bid':.5, 'bidder': 0},
+    bidders = [{'bid': .5, 'bidder': 0},
+               {'bid': .4, 'bidder': 1},
+               {'bid': .3, 'bidder': 2},
+               {'bid': .2, 'bidder': 3},
+               {'bid': .1, 'bidder': 4}]
+
+    VCG = vickreyClarkGrove(slots, bidders)
+    print(toString(VCG))
+
+    print('\n---- TEST 2 -----\n')
+    slots = [500, 300, 100]
+    bidders = [{'bid': .5, 'bidder': 0},
+               {'bid': .45, 'bidder': 1},
+               {'bid': .4, 'bidder': 2},
+               {'bid': .35, 'bidder': 3},
+               {'bid': .3, 'bidder': 4}]
+
+    VCG = vickreyClarkGrove(slots, bidders)
+    print(toString(VCG))
+
+    print('\n---- TEST 3 -----\n')
+    slots = [500, 300, 100]
+    bidders = [{'bid': .5, 'bidder': 0},
+               {'bid': .2, 'bidder': 1},
+               {'bid': .15, 'bidder': 2},
+               {'bid': .1, 'bidder': 3},
+               {'bid': .05, 'bidder': 4}]
+
+    VCG = vickreyClarkGrove(slots, bidders)
+    print(toString(VCG))
+
+    print('\n---- TEST 4 -----\n')
+    slots = [500, 300, 100]
+    bidders = [{'bid': .5, 'bidder': 0},
+               {'bid': .03, 'bidder': 1},
+               {'bid': .02, 'bidder': 2},
+               {'bid': .01, 'bidder': 3},
+               {'bid': .01, 'bidder': 4}]
+
+    VCG = vickreyClarkGrove(slots, bidders)
+    print(toString(VCG))
+
+    print('\n---- TEST 5 -----\n')
+    slots = [500, 300]
+    bidders = [{'bid': .5, 'bidder': 0},
                {'bid': .4, 'bidder': 1},
                {'bid': .3, 'bidder': 2},
                {'bid': .2, 'bidder': 3},
