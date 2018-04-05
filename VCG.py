@@ -118,3 +118,14 @@ if __name__ == '__main__':
 
     VCG = vickreyClarkGrove(slots, bidders)
     print(toString(VCG))
+
+    print('\n---- TEST 6 -----\n')
+    slots = [700, 600, 500, 450, 300, 100, 25]
+    bidders = [{'bid': .5, 'bidder': 0},
+               {'bid': .4, 'bidder': 1},
+               {'bid': .3, 'bidder': 2},
+               {'bid': .2, 'bidder': 3},
+               {'bid': .1, 'bidder': 4}]
+
+    VCG = vickreyClarkGrove(slots, bidders)
+    print(toString(VCG))
